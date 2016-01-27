@@ -14,6 +14,7 @@ spl_autoload_register(function ($class) {
 
     // strip the prefix off the class
     $class = substr($class, $prefix_len);
+    $class[1] = strtolower($class[1]); // Fix-up for case sensitive filesystems
 
     // a partial filename
     $file = $base_dir .str_replace('\\', DIRECTORY_SEPARATOR, $class) . '.php';
